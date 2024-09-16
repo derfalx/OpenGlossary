@@ -1,0 +1,21 @@
+{% extends "partials/base.html" %}
+{% block content %}
+    <nav class="entriesNavBar">
+        <ul class="navLinks">
+            {% for char in filters %}
+                {% if loop.index0 == active %}
+                    <a href="{{ url_for('glossary.overview', current_filter=char) }}" class="currentNavMenuItem">{{ char }}</a>
+                {% else %}
+                    <a href="{{ url_for('glossary.overview', current_filter=char) }}" class="navMenuItem">{{ char }}</a>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+    <ul class="titleList">
+        {% for entry in entries|sort(attribute='title') %}
+            <li>
+                <h3><a href="{{ url_for('glossary.details', entry_title=entry.title) }}">{{ entry.title }}</a></h3>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

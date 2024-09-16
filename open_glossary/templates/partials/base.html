@@ -1,0 +1,20 @@
+{% import "macros.html" as macros %}
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    {% include "partials/head.html" %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        {% include "partials/header.html" %}
+      </header>
+      <main>
+        {% block content %}{% endblock content %}
+      </main>
+      <footer>
+{#        {% include "footer.html" %}#}
+      </footer>
+    </div>
+  </body>
+</html>
