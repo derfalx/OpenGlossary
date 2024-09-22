@@ -258,12 +258,12 @@ class navItem.
 
 .navMenuItem {
   display: inline-block;
-  padding: 0rem 1rem 0 0;
+  margin: 0rem 3rem 0 0;
 }
 
 .currentNavMenuItem{
   display: inline-block;
-  padding: 0rem 1rem 0 0;
+  margin: 0rem 3rem 0 0;
   text-decoration: underline;
 }
 
@@ -412,4 +412,15 @@ pre table {
   justify-content: center;
   align-items: center;
   align-content: center
+}
+
+.entriesNavMenuItem {
+  display: inline-block;
+  margin: 0rem 1rem 0 0;
+}
+
+.entriesCurrentNavMenuItem{
+  display: inline-block;
+  margin: 0rem 1rem 0 0;
+  text-decoration: underline;
 }

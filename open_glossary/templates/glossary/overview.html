@@ -4,9 +4,9 @@
         <ul class="navLinks">
             {% for char in filters %}
                 {% if loop.index0 == active %}
-                    <a href="{{ url_for('glossary.overview', current_filter=char) }}" class="currentNavMenuItem">{{ char }}</a>
+                    <a href="{{ url_for('glossary.overview', current_filter=char) }}" class="entriesCurrentNavMenuItem">{{ char }}</a>
                 {% else %}
-                    <a href="{{ url_for('glossary.overview', current_filter=char) }}" class="navMenuItem">{{ char }}</a>
+                    <a href="{{ url_for('glossary.overview', current_filter=char) }}" class="entriesNavMenuItem">{{ char }}</a>
                 {% endif %}
             {% endfor %}
         </ul>
