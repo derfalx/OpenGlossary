@@ -1,0 +1,12 @@
+{
+  "title": "App-Title",
+  "icon": {
+    "type": "text",
+    "text": "App"
+  },
+  "menu": {
+    "About": "_about",
+    "Links": "_links"
+  },
+  "SQLALCHEMY_DATABASE_URI": "sqlite:///D:\\Code\\OpenGlossary\\glossary.db"
+}

@@ -1,24 +1,39 @@
 <nav class="navBar">
-  <a class="navLogoMenuItem" href="/open_glossary/static">
-    <div class="navLogo">Zen</div>
-    {{ title }}
-  </a>
-  <ul class="navLinks">
-  <a href="{{ url_for('glossary.overview') }}" class="navMenuItem">Übersicht</a>
-  <div class="navMenuItem">
-    <button class="themeButton light" onclick="setTheme('light')" title="Light mode"><svg class="icons icons__background"><use href="{{ url_for('static', filename='icons.svg#lightMode') | safe }}"></use></svg></button>
-    <button class="themeButton dark" onclick="setTheme('dark')" title="Dark mode"><svg class="icons icons__background"><use href="{{ url_for('static', filename='icons.svg#darkMode') | safe }}"></use></svg></button>
-  </div>
-  </ul>
+    <a class="navLogoMenuItem" href="/">
+        <div class="navLogo">{{ config.icon.text }}</div>
+        {{ config.title }}
+    </a>
+    <ul class="navLinks">
+        <a href="{{ url_for('glossary.overview') }}" class="navMenuItem">Startseite</a>
+        {% for key, value in config.menu.items() %}
+            {% if value.startswith('_') %}
+                <a href="{{ url_for('page.page', page=value) }}" class="navMenuItem">{{ key }}</a>
+            {% else %}
+                <a href="{{ value }}" class="navMenuItem">{{ key }}</a>
+            {% endif %}
+        {% endfor %}
+        <div class="navMenuItem">
+            <button class="themeButton light" onclick="setTheme('light')" title="Light mode">
+                <svg class="icons icons__background">
+                    <use href="{{ url_for('static', filename='icons.svg') | safe }}#lightMode"></use>
+                </svg>
+            </button>
+            <button class="themeButton dark" onclick="setTheme('dark')" title="Dark mode">
+                <svg class="icons icons__background">
+                    <use href="{{ url_for('static', filename='icons.svg') | safe }}#darkMode"></use>
+                </svg>
+            </button>
+        </div>
+    </ul>
 </nav>
 <script>
-  const setTheme = (theme) => {
-      document.documentElement.className = theme;
-      localStorage.setItem('theme', theme);
-  }
-  const getTheme = () => {
-      const theme = localStorage.getItem('theme');
-      theme && setTheme(theme);
-  }
-  getTheme()
+    const setTheme = (theme) => {
+        document.documentElement.className = theme;
+        localStorage.setItem('theme', theme);
+    }
+    const getTheme = () => {
+        const theme = localStorage.getItem('theme');
+        theme && setTheme(theme);
+    }
+    getTheme()
 </script>

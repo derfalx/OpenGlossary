@@ -11,6 +11,6 @@ def cli():
     with app.app_context():
         p = r'L:\Vault\Thoughts\Zen\Glossar\Shihô.md'
         parser = MDToDBParser(db)
-        entry = parser.md_to_db(p)
+        entry = parser.md_entry_to_db(p)
 
 

@@ -1,0 +1,4 @@
+docker/
+.gitignore
+glossary.db
+config.json

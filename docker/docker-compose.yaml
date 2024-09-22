@@ -1,0 +1,17 @@
+services:
+  glossary:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      tags:
+        - "zen_glossary:latest"
+    volumes:
+      - type: bind
+        source: "../config.json"
+        target: "/app/config.json"
+      - type: bind
+        source: "../glossary.db"
+        target: "/app/glossary.db"
+    restart: unless-stopped
+    ports:
+      - "5050:5050"
