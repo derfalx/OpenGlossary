@@ -1,0 +1,120 @@
+$family-primary: "Fira Code";
+$light-bg: #EEEEEE;
+$dark-bg: #222529;
+$dark-link: #78B6AD;
+$light-font-color: #2B2F33;
+$light-primary: #9d0606;
+$light-link: #634A96;
+
+@import 'bulma.min';
+
+/* Fira Code instead of some other font */
+@font-face {
+  font-family: "Fira Code";
+  /* src-path is relative to this css file */
+  src: url(../font/FIRACODE-REGULAR.TTF)
+}
+
+.common {
+  --bulma-family-primary: #{$family-primary};
+  font-size: 95%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* CSS Variables */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* CSS Variables */
+  }
+}
+
+
+.theme-light, [data-theme=light], {
+  @extend .common;
+  background: #{$light-bg};
+  --background-col: #{$dark-bg};
+  --bulma-primary: #{$light-primary};
+  --bulma-link-text: #{$light-link};
+  --bulma-scheme-h: 280;
+  --bulma-hover-background-l-delta: -20%;
+  //--bulma-background-hover: #{$light-link};
+}
+
+.theme-dark, [data-theme=dark], {
+  @extend .common;
+  background: #{$dark-bg};
+  --background-col: #{$light-bg};
+  --bulma-scheme-h: 171;
+  --bulma-hover-background-l-delta: 20%;
+  --bulma-link-text: #{$dark-link}
+}
+
+
+
+h1 {
+  @extend .title;
+  @extend .is-1;
+  text-align: center;
+  text-wrap: balance;
+}
+
+h1::before {
+  content: '# ';
+}
+
+section {
+  @extend .section;
+}
+
+:root {
+
+}
+
+.navbar {
+}
+
+.main-navbar {
+  border-bottom: solid gray;
+  background-color: transparent;
+}
+
+/* Icons settings */
+.icons {
+  width: 1.0rem;
+  height: 1.0rem;
+  aspect-ratio: 1/1;
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--fgColor);
+  fill: var(--fgColor);
+  background-color: transparent;
+}
+
+.icons__background:hover {
+  background-color: transparent;
+  color: var(--metaColor);
+}
+
+.themeButton {
+  cursor: pointer;
+  border: none;
+  font-size: 0.8rem;
+  background-color: transparent
+}
+
+.dark .themeButton.dark,
+.themeButton.light {
+  display: none
+}
+
+.dark .themeButton.light {
+  display: block
+}
+
+.navLogo {
+  font-size: 1.75rem
+}

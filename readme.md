@@ -1,6 +1,23 @@
 # Open Glossary
 A simple open source glossary system generated from markdown files - but not a static site.
 
+**Why not static?** 
+Good question. While this could be a simple static site generator for glossaries, it is planned to provide a proper search
+functionality. While it could be possible to implement this in a static-site-way, it is planned to be implemented in a 
+dynamic application way by now.
+
+## Features
+ - [x] Minimal Viable Product (MVP) glossary entries
+ - [x] MVP menu structuring
+ - [x] MVP additional pages
+ - [x] MVP docker based deployment
+ - [x] MVP markdown to sqlite3 parsing functionality
+ - [ ] CLI to parse Markdown to sqlite3
+ - [ ] Additional properties per glossary entry
+ - [ ] Search functionality
+ - [ ] Proper documentation
+
+
 ## Configuration
 ```json
 {

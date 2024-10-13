@@ -1,4 +1,8 @@
 {% extends "partials/base.html" %}
 {% block content %}
-    {{ entry.description|safe }}
+    <section>
+        <div class="content">
+            {{ entry.description|safe }}
+        </div>
+    </section>
 {% endblock %}
