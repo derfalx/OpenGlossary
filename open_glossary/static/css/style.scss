@@ -41,7 +41,6 @@ $light-link: #634A96;
   --bulma-link-text: #{$light-link};
   --bulma-scheme-h: 280;
   --bulma-hover-background-l-delta: -20%;
-  //--bulma-background-hover: #{$light-link};
 }
 
 .theme-dark, [data-theme=dark], {
@@ -117,4 +116,13 @@ section {
 
 .navLogo {
   font-size: 1.75rem
+}
+
+.navbar-item.is-active-item {
+  //background: var(--bulma-background-hover);
+  background: var(--bulma-background-active);
+}
+
+.menu-list .navbar-item:hover {
+  background: var(--bulma-background-hover);
 }

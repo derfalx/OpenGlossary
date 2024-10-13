@@ -22017,4 +22017,12 @@ h1::before {
   font-size: 1.75rem;
 }
 
+.navbar-item.is-active-item {
+  background: var(--bulma-background-active);
+}
+
+.menu-list .navbar-item:hover {
+  background: var(--bulma-background-hover);
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -10,7 +10,7 @@
                                 <li>
                                     {% if loop.index0 == active %}
                                         <a href="{{ url_for('glossary.overview', current_filter=char) }}"
-                                           class="navbar-item">{{ char }}</a>
+                                           class="is-active-item navbar-item">{{ char }}</a>
                                     {% else %}
                                         <a href="{{ url_for('glossary.overview', current_filter=char) }}"
                                            class="navbar-item">{{ char }}</a>
