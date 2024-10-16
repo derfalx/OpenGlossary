@@ -4,6 +4,7 @@
     <section>
         {{ create_breadcrumbs() }}
         <div class="content">
+            <h1>{{ entry.title | safe }}</h1>
             {{ entry.description|safe }}
         </div>
     </section>
