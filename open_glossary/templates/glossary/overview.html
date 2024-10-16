@@ -1,38 +1,40 @@
+{% from "glossary/macros.html" import create_breadcrumbs with context %}
 {% extends "partials/base.html" %}
 {% block content %}
-        <section>
-            <div class="columns is-mobile">
-                <div class="column is-narrow">
-                    <aside class="menu">
-                        <p class="menu-label"># Index</p>
-                        <ul class="menu-list">
-                            {% for char in filters %}
+    <section>
+        {{ create_breadcrumbs() }}
+        <div class="columns is-mobile">
+            <div class="column is-narrow">
+                <aside class="menu">
+                    <p class="menu-label"># Index</p>
+                    <ul class="menu-list">
+                        {% for char in filters %}
+                            <li>
+                                {% if loop.index0 == active %}
+                                    <a href="{{ url_for('glossary.overview', current_filter=char) }}"
+                                       class="is-active-item navbar-item">{{ char }}</a>
+                                {% else %}
+                                    <a href="{{ url_for('glossary.overview', current_filter=char) }}"
+                                       class="navbar-item">{{ char }}</a>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </aside>
+            </div>
+            <section>
+                <div class="column">
+                    <div class="content">
+                        <ul>
+                            {% for entry in entries|sort(attribute='title') %}
                                 <li>
-                                    {% if loop.index0 == active %}
-                                        <a href="{{ url_for('glossary.overview', current_filter=char) }}"
-                                           class="is-active-item navbar-item">{{ char }}</a>
-                                    {% else %}
-                                        <a href="{{ url_for('glossary.overview', current_filter=char) }}"
-                                           class="navbar-item">{{ char }}</a>
-                                    {% endif %}
+                                    <a href="{{ url_for('glossary.details', entry_title=entry.title) }}">{{ entry.title }}</a></h3>
                                 </li>
                             {% endfor %}
                         </ul>
-                    </aside>
-                </div>
-                <section>
-                    <div class="column">
-                        <div class="content">
-                            <ul>
-                                {% for entry in entries|sort(attribute='title') %}
-                                    <li>
-                                        <a href="{{ url_for('glossary.details', entry_title=entry.title) }}">{{ entry.title }}</a></h3>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
                     </div>
-                </section>
-            </div>
-        </section>
+                </div>
+            </section>
+        </div>
+    </section>
 {% endblock %}

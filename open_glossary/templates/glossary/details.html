@@ -1,6 +1,8 @@
+{% from "glossary/macros.html" import create_breadcrumbs with context %}
 {% extends "partials/base.html" %}
 {% block content %}
     <section>
+        {{ create_breadcrumbs() }}
         <div class="content">
             {{ entry.description|safe }}
         </div>

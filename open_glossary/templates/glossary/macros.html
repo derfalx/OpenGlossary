@@ -1,0 +1,14 @@
+{% macro create_breadcrumbs() -%}
+    <nav class="breadcrumb is-small" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="{{  url_for('glossary.overview') }}">Glossar</a></li>
+            {% for path_elem in breadcrumb_paths %}
+                {% if not loop.last %}
+                    <li><a href="{{ path_elem }}">{{ breadcrumb_titles[loop.index0] }}</a></li>
+                {% else %}
+                    <li><a class="is-active-item" href="#" aria-current="page">{{ breadcrumb_titles[loop.index0] }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+{%- endmacro %}

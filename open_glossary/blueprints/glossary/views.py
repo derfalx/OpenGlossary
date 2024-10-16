@@ -1,6 +1,6 @@
 import string
 
-from flask import render_template, abort
+from flask import render_template, abort, url_for
 
 from . import glossary_bp
 from ... import db
@@ -22,7 +22,10 @@ def overview(current_filter: str = None):
     return render_template('glossary/overview.html',
                            active=all_filter.index(current_filter),
                            filters=all_filter,
-                           entries=entries)
+                           entries=entries,
+                           breadcrumb_paths=current_filter,
+                           breadcrumb_titles=current_filter)
+
 
 @glossary_bp.route('/details/<string:entry_title>')
 def details(entry_title: str):
@@ -31,4 +34,12 @@ def details(entry_title: str):
         abort(404)
 
     return render_template('glossary/details.html',
-                           entry=entry)
+                           entry=entry,
+                           breadcrumb_paths=[
+                               url_for('glossary.overview', current_filter=entry.title[0].upper()),
+                               url_for('glossary.details', entry_title=entry.title)
+                           ],
+                           breadcrumb_titles=[
+                               entry.title[0].upper(),
+                               entry_title
+                           ])

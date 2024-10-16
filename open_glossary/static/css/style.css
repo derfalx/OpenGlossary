@@ -21950,8 +21950,8 @@ a.has-background-danger:active, button.has-background-danger:active, has-backgro
   }
 }
 .theme-light, [data-theme=light] {
-  background: #EEEEEE;
   --background-col: #222529;
+  --bulma-scheme-main: #EEEEEE;
   --bulma-primary: #9d0606;
   --bulma-link-text: #634A96;
   --bulma-scheme-h: 280;
@@ -21959,8 +21959,8 @@ a.has-background-danger:active, button.has-background-danger:active, has-backgro
 }
 
 .theme-dark, [data-theme=dark] {
-  background: #222529;
   --background-col: #EEEEEE;
+  --bulma-scheme-main: #222529;
   --bulma-scheme-h: 171;
   --bulma-hover-background-l-delta: 20%;
   --bulma-link-text: #78B6AD ;
@@ -21973,6 +21973,7 @@ h1 {
 
 h1::before {
   content: "# ";
+  color: var(--bulma-primary);
 }
 
 .main-navbar {
@@ -22023,6 +22024,19 @@ h1::before {
 
 .menu-list .navbar-item:hover {
   background: var(--bulma-background-hover);
+}
+
+.breadcrumb a {
+  color: var(--bulma-link-text);
+}
+.breadcrumb a:hover {
+  background: var(--bulma-background-hover);
+  color: var(--bulma-text);
+}
+.breadcrumb a.is-active-item {
+  border-bottom: var(--bulma-text);
+  border-bottom-style: solid;
+  border-bottom-width: thin;
 }
 
 /*# sourceMappingURL=style.css.map */
