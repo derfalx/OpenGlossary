@@ -5547,11 +5547,11 @@ div.icon-text {
   font-size: 3rem;
 }
 
-.title.is-2, h1.is-2 {
+.title.is-2, h2.title, h1.is-2 {
   font-size: 2.5rem;
 }
 
-.title.is-3, h1.is-3 {
+.title.is-3, h3.title, h1.is-3 {
   font-size: 2rem;
 }
 
@@ -5591,11 +5591,11 @@ div.icon-text {
   font-size: 3rem;
 }
 
-.subtitle.is-2 {
+.subtitle.is-2, h2.subtitle {
   font-size: 2.5rem;
 }
 
-.subtitle.is-3 {
+.subtitle.is-3, h3.subtitle {
   font-size: 2rem;
 }
 
@@ -8901,7 +8901,7 @@ a.panel-block:hover, label.panel-block:hover {
   margin-inline-start: 8.3333333333%;
 }
 
-.columns.is-mobile > .column.is-2 {
+.columns.is-mobile > .column.is-2, .columns.is-mobile > h2.column {
   flex: none;
   width: 16.6666666667%;
 }
@@ -8910,7 +8910,7 @@ a.panel-block:hover, label.panel-block:hover {
   margin-inline-start: 16.6666666667%;
 }
 
-.columns.is-mobile > .column.is-3 {
+.columns.is-mobile > .column.is-3, .columns.is-mobile > h3.column {
   flex: none;
   width: 25%;
 }
@@ -9250,14 +9250,14 @@ a.panel-block:hover, label.panel-block:hover {
   .column.is-offset-1, .column.is-offset-1-tablet {
     margin-inline-start: 8.3333333333%;
   }
-  .column.is-2, .column.is-2-tablet {
+  .column.is-2, h2.column, .column.is-2-tablet {
     flex: none;
     width: 16.6666666667%;
   }
   .column.is-offset-2, .column.is-offset-2-tablet {
     margin-inline-start: 16.6666666667%;
   }
-  .column.is-3, .column.is-3-tablet {
+  .column.is-3, h3.column, .column.is-3-tablet {
     flex: none;
     width: 25%;
   }
@@ -10141,7 +10141,7 @@ a.panel-block:hover, label.panel-block:hover {
     --bulma-column-gap:0.25rem;
   }
 }
-.columns.is-2 {
+.columns.is-2, h2.columns {
   --bulma-column-gap:0.5rem;
 }
 
@@ -10190,7 +10190,7 @@ a.panel-block:hover, label.panel-block:hover {
     --bulma-column-gap:0.5rem;
   }
 }
-.columns.is-3 {
+.columns.is-3, h3.columns {
   --bulma-column-gap:0.75rem;
 }
 
@@ -21976,6 +21976,24 @@ h1::before {
   color: var(--bulma-primary);
 }
 
+h2 {
+  text-wrap: balance;
+}
+
+h2::before {
+  content: "## ";
+  color: var(--bulma-primary);
+}
+
+h3 {
+  text-wrap: balance;
+}
+
+h3::before {
+  content: "### ";
+  color: var(--bulma-primary);
+}
+
 .main-navbar {
   border-bottom: solid gray;
   background-color: transparent;
@@ -22037,6 +22055,13 @@ h1::before {
   border-bottom: var(--bulma-text);
   border-bottom-style: solid;
   border-bottom-width: thin;
+}
+
+a[href]:not(:where([href^="#"],
+[href^="javascript:" i],
+[href^="/"]:not([href^="//"]),
+[href*="//shoujin.dev"])):after {
+  content: "🔗";
 }
 
 /*# sourceMappingURL=style.css.map */

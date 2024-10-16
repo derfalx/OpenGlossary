@@ -68,6 +68,26 @@ h1::before {
   color: var(--bulma-primary);
 }
 
+h2 {
+  @extend .is-2;
+  text-wrap: balance;
+}
+
+h2::before {
+  content: '## ';
+  color: var(--bulma-primary);
+}
+
+h3 {
+  @extend .is-3;
+  text-wrap: balance;
+}
+
+h3::before {
+  content: '### ';
+  color: var(--bulma-primary);
+}
+
 section {
   @extend .section;
 }
@@ -145,4 +165,17 @@ section {
   }
 }
 
+
+a[href]:not(:where(
+  /* exclude hash only links */
+  [href^="#"],
+  /* exclude javascript only links */
+  [href^="javascript:" i],
+  /* exclude relative but not double slash only links */
+  [href^="/"]:not([href^="//"]),
+  /* domains to exclude */
+  [href*="//shoujin.dev"]
+)):after {
+  content: '🔗';
+}
 
