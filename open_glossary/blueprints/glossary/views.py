@@ -10,9 +10,10 @@ from ...database.entry import GlossaryEntry
 @glossary_bp.route('/<string:current_filter>')
 @glossary_bp.route('/')
 def overview(current_filter: str = None):
-    all_filter = list(string.ascii_uppercase)
+    all_filter = [r[0] for r in db.session.query(GlossaryEntry.letter).distinct(GlossaryEntry.letter).all()]
+    print(all_filter)
     if current_filter is None:
-        current_filter = 'A'
+        current_filter = all_filter[0]
 
     if current_filter not in all_filter:
         abort(404)
