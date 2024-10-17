@@ -13,8 +13,10 @@ def create_app():
     register_blueprints(app)
 
     @app.context_processor
-    def set_title():
-        return dict(title='Zen Glossar')
+    def set_default_context():
+        from open_glossary.database.entry import GlossaryEntry
+        return dict(title='Zen Glossar',
+                    entries_count=db.session.query(GlossaryEntry).count())
 
     return app
 

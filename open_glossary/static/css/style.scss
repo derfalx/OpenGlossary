@@ -18,17 +18,20 @@ $light-link: #634A96;
 .common {
   --bulma-family-primary: #{$family-primary};
   font-size: 95%;
+
+}
+
+html {
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    /* CSS Variables */
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* CSS Variables */
+
   }
 }
 
@@ -41,9 +44,6 @@ $light-link: #634A96;
   --bulma-link-text: #{$light-link};
   --bulma-scheme-h: 280;
   --bulma-hover-background-l-delta: -20%;
-
-  ////--bulma-link-text-hover: var(--bulma-background-hover);
-  //--bulma-link-text-active: var(--bulma-primary);
 }
 
 .theme-dark, [data-theme=dark], {
@@ -52,9 +52,21 @@ $light-link: #634A96;
   --bulma-scheme-main: #{$dark-bg};
   --bulma-scheme-h: 171;
   --bulma-hover-background-l-delta: 20%;
-  --bulma-link-text: #{$dark-link}
+  --bulma-link-text: #{$dark-link};
 }
 
+footer {
+  @extend .footer;
+  background-color: var(--bulma-scheme-main);
+
+}
+
+.footer-content {
+  @extend .content;
+  @extend .is-small;
+  border-top: solid thin gray;
+  padding: var(--bulma-footer-padding);
+}
 
 h1 {
   @extend .title;
@@ -71,21 +83,21 @@ h1::before {
 h2 {
   @extend .is-2;
   text-wrap: balance;
-}
 
-h2::before {
-  content: '## ';
-  color: var(--bulma-primary);
+  &:before {
+    content: '## ';
+    color: var(--bulma-primary);
+  }
 }
 
 h3 {
   @extend .is-3;
   text-wrap: balance;
-}
 
-h3::before {
-  content: '### ';
-  color: var(--bulma-primary);
+  &:before {
+    content: '### ';
+    color: var(--bulma-primary);
+  }
 }
 
 section {
