@@ -21942,7 +21942,7 @@ a.has-background-danger:active, button.has-background-danger:active, has-backgro
 .theme-light, [data-theme=light] {
   --background-col: #222529;
   --bulma-scheme-main: #EEEEEE;
-  --bulma-primary: #9d0606;
+  --bulma-primary: #b328f4;
   --bulma-link-text: #634A96;
   --bulma-scheme-h: 280;
   --bulma-hover-background-l-delta: -20%;
@@ -22054,11 +22054,27 @@ h3:before {
   border-bottom-width: thin;
 }
 
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 a[href]:not(:where([href^="#"],
 [href^="javascript:" i],
 [href^="/"]:not([href^="//"]),
 [href*="//shoujin.dev"])):after {
-  content: "🔗";
+  font: var(--fa-font-solid);
+  font-size: 60%;
+  color: gray;
+  content: " \f0c1";
+}
+
+.wikilink::after {
+  font: var(--fa-font-solid);
+  font-size: 60%;
+  color: gray;
+  content: " \f08e";
 }
 
 /*# sourceMappingURL=style.css.map */

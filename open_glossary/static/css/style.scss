@@ -3,10 +3,11 @@ $light-bg: #EEEEEE;
 $dark-bg: #222529;
 $dark-link: #78B6AD;
 $light-font-color: #2B2F33;
-$light-primary: #9d0606;
+$light-primary: #b328f4;
 $light-link: #634A96;
 
 @import 'bulma.min';
+//@import 'all.min';
 
 /* Fira Code instead of some other font */
 @font-face {
@@ -177,6 +178,12 @@ section {
   }
 }
 
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 
 a[href]:not(:where(
   /* exclude hash only links */
@@ -188,6 +195,18 @@ a[href]:not(:where(
   /* domains to exclude */
   [href*="//shoujin.dev"]
 )):after {
-  content: '🔗';
+  font: var(--fa-font-solid);
+  font-size: 60%;
+  color: gray;
+  content: ' \f0c1';
+  //content: '🔗';
 }
+
+.wikilink::after {
+  font: var(--fa-font-solid);
+  font-size: 60%;
+  color: gray;
+  content: ' \f08e';
+}
+
 

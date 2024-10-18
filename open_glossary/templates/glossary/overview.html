@@ -28,7 +28,7 @@
                         <ul>
                             {% for entry in entries|sort(attribute='title') %}
                                 <li>
-                                    <a href="{{ url_for('glossary.details', entry_title=entry.title) }}">{{ entry.title }}</a></h3>
+                                    <a class="wikilink" href="{{ url_for('glossary.details', entry_title=entry.title) }}">{{ entry.title }}</a></h3>
                                 </li>
                             {% endfor %}
                         </ul>
