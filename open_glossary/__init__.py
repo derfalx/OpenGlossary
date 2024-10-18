@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask
+from flask import Flask, render_template
 from loguru import logger
 
 from open_glossary.database import Base, db
@@ -17,6 +17,10 @@ def create_app():
         from open_glossary.database.entry import GlossaryEntry
         return dict(title='Zen Glossar',
                     entries_count=db.session.query(GlossaryEntry).count())
+
+    @app.errorhandler(404)
+    def not_found(error):
+        return render_template('404.html'), 404
 
     return app
 
