@@ -45,6 +45,7 @@ html {
   --bulma-link-text: #{$light-link};
   --bulma-scheme-h: 280;
   --bulma-hover-background-l-delta: -20%;
+  --bulma-hr-background-color: gray;
 }
 
 .theme-dark, [data-theme=dark], {
@@ -54,6 +55,7 @@ html {
   --bulma-scheme-h: 171;
   --bulma-hover-background-l-delta: 20%;
   --bulma-link-text: #{$dark-link};
+  --bulma-hr-background-color: gray;
 }
 
 footer {
@@ -209,4 +211,11 @@ a[href]:not(:where(
   content: ' \f08e';
 }
 
-
+.references-block {
+  @extend .content;
+  @extend .is-small;
+  @extend .block;
+  border-top: solid gray thin;
+  margin-top: 4rem;
+  padding-top: 2rem;
+}

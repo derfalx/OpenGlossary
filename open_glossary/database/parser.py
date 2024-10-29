@@ -16,7 +16,7 @@ class MDToDBParser:
 
     def md_entry_to_db(self, path: str) -> GlossaryEntry:
         meta, html = self.parse_entry_file(path)
-        entry = GlossaryEntry(title=meta['title'], description=html, letter=meta['title'][0])
+        entry = GlossaryEntry(title=meta['title'], description=html, letter=meta['title'][0], meta=meta)
         logger.debug(f"Entry(title={entry.title}, description={entry.description[0:10]})")
         self.db.session.add(entry)
         self.db.session.commit()

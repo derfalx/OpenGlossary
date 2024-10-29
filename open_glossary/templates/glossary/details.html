@@ -7,5 +7,17 @@
             <h1>{{ entry.title | safe }}</h1>
             {{ entry.description|safe }}
         </div>
+        <div class="references-block">
+            <p><b>Referenzen:</b></p>
+            {% if entry.meta.references is not none %}
+                <ul>
+                    {% for item in entry.meta.references %}
+                        <li><a href="{{ item }}">{{ item }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Keine Referenzen vorhanden.</p>
+            {% endif %}
+        </div>
     </section>
 {% endblock %}
